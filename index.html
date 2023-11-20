@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/my_icon.svg">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <style>
+
+    @font-face {
+      font-family: hanken;
+      src: url(./assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    :root {
+      --width: 18vw;
+    }
+
+    body {
+      background-color: rgb(183, 206, 226);
+      /* width: 100vw;
+      height: 100vh; */
+      
+    }
+
+    .plain_cutout_area {
+      width: 80vw;
+      height: 80vh;      
+      background-color: white;
+      margin: 10vh auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10vw;
+      border-radius: 5px;
+    }
+
+    .container {
+      width: 45vw;
+      min-height: 45vh; 
+      border-radius: 15px;
+      border: none;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      box-shadow: 0 0.5vw 0.5vw 0.5vw hsl(221, 100%, 98%);
+      font-weight: 500;
+      font-family: hanken;
+    }
+
+    .con_first_half {
+      background-color: hsl(241, 81%, 54%);
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      color: hsl(241, 100%, 89%);
+      padding: 2vw 4vw 3vw 4vw;
+      font-size: 1vw;
+    }
+    
+    h2 {
+      font-size: 1.5vw;
+    }
+
+    .avg_score {
+      border: none;
+      margin: 1vw;
+      width: 10vw;
+      height: 10vw;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: linear-gradient(hsla(256, 72%, 46%, 1),hsl(241, 81%, 54%));
+    }
+
+    .avg_score span {
+      color: white;
+      font-size: 3vw;
+      font-weight: 700;
+    }
+
+    #great_text {
+      font-size: 2vw;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1vh;
+    }
+
+    .con_second_half {
+      padding: 2vw;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      color: hsl(224, 30%, 27%);
+    }
+
+    .skills { 
+      width: var(--width);
+      height: 6vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+      font-weight: 700;
+      padding: 1vw;
+      margin: 1.5vh 0;
+      font-size: 1vw;
+    }
+
+    .icons {
+      width: 1.2vw;
+    }
+
+    .score .sc_num {
+      font-weight: 700;
+      color: hsl(224, 30%, 27%);
+    }
+
+    .score span {
+      font-weight: 500;
+      color: hsl(241, 100%, 85%);
+    }
+
+    .skill_and_icon {
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+    } 
+
+    .reaction {      
+      background-color: hsl(0, 100%, 99%);
+      color: #FF5555;
+    }
+
+    .memory {
+      background-color: hsl(39, 100%, 98%);
+      color: hsl(39, 100%, 56%);
+    }
+
+    .verbal {
+      background-color: hsl(166, 100%, 98%);
+      color: hsl(166, 100%, 37%);
+    }
+
+    .visual {
+      background-color: hsl(234, 85%, 98%);
+      color: hsl(234, 85%, 45%);
+    }
+
+    button {
+      background-color: hsl(224, 30%, 27%);
+      color: hsla(0, 0%, 100%,0.9);
+      width: var(--width);
+      height: 6vh;
+      border-radius: 2vw;
+      border: none;
+      font-weight: 700;
+      font-size: 1vw;
+      margin-top: 1.5vw;
+    }
+
+    button:hover {
+      background-color:  hsl(241, 81%, 54%);
+    }
+    
+    .attribution { 
+      font-size: 2vw;
+      text-align: center;
+    }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    /* ! -------------------------- MEDIA QUERY -------------------------------! */
+    @media (max-width: 375px) {
+      .plain_cutout_area {
+         width: 100vw;
+         height: 100vh;
+         margin: 0;
+         padding: 0;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        grid-template-columns: 100vw;
+        grid-template-rows: 50% 50%;
+      }
+
+      .con_first_half {
+        border-radius: 0 0 20px 20px;
+        font-size: 1rem;
+        padding: 10vw;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .avg_score {
+        width: 30vw;
+        height: 30vh;
+      }
+
+      .avg_score span {
+        font-size: 3rem;
+      }
+
+      #great_text {
+        font-size: 1.2rem;
+      }
+
+      .con_second_half {
+        padding: 5vw 10vw;
+      }
+
+      .skills, button {
+        width: 80vw;
+        font-size: 1rem;
+      }
+
+      .icons {
+        width: 1rem;
+      }
+
+      button {
+        border-radius: 10vw;
+        padding: 3vw;
+      }
+      
+    }
+    /* ! ---------^^^^^^^^^^^^^^^^^^ MEDIA QUERY ^^^^^^^^^^^^^^^------------! */
+
+  </style>
+</head>
+<body>
+  <div class="plain_cutout_area">
+    <div class="container">
+
+      <div class="con_first_half">
+      <h2>Your Result</h2>
+        <div class="avg_score">
+          <span>76</span>
+          <p>of 100</p>
+        </div>
+        <span id="great_text">Great</span>
+        <p>You scored higher than 65% of the people who have taken these tests.</p>
+      </div>
+
+      <div class="con_second_half">
+        <h2>Summary</h2>
+        <div class="skills_sect">
+
+          <div class="skills reaction">
+            <div class="skill_and_icon"> 
+              <img src="./assets/images/icon-reaction.svg" alt="icon" class="icons">
+              <p class="category">Reaction</p>
+            </div>
+            <p class="score"> <span class="sc_num">80</span> <span>/ 100</span></p>
+          </div>
+
+          <div class="skills memory">            
+            <div class="skill_and_icon">
+              <img src="./assets/images/icon-memory.svg" alt="icon" class="icons">
+              <p class="category">Memory</p>
+            </div>
+            
+            <p class="score"><span class="sc_num">92</span> <span>/ 100</span></p>
+          </div>
+
+          <div class="skills verbal">
+            <div class="skill_and_icon">
+              <img src="./assets/images/icon-verbal.svg" alt="icon" class="icons">
+              <p class="category">Verbal</p>
+            </div>
+            <p class="score"><span class="sc_num">61</span> <span>/ 100</span></p>
+          </div>
+
+          <div class="skills visual">
+            <div class="skill_and_icon">
+              <img src="./assets/images/icon-visual.svg" alt="icon" class="icons">
+              <p class="category" >Visual</p>
+            </div>
+            <p class="score"><span class="sc_num">72</span> <span>/ 100</span></p>
+          </div>
+
+        </div>
+        <button>Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Mohammed Shirazu</a>.</p>
+  </div>
+
+  <script type="module">
+    import skillData from './data.json' assert {type:'json'};
+
+    let skillName = document.getElementsByClassName('category');
+    let skillScore = document.getElementsByClassName('sc_num');
+    let skillIcon = document.getElementsByClassName('icons');
+
+    for (let i=0; i<skillData.length; i++) {
+        skillName[i].innerHTML = skillData[i].category;
+        skillScore[i].innerHTML = skillData[i].score;
+        skillIcon[i].src = skillData[i].icon;
+    }
+
+  </script>
+
+</body>
+</html>
